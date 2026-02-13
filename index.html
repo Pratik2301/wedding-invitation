@@ -20,9 +20,27 @@ font-family:'Poppins',sans-serif;
 background:var(--cream);
 color:#333;
 text-align:center;
+overflow-x:hidden;
 }
 
-/* HERO - FULL MOBILE SCREEN */
+/* MUSIC BUTTON */
+#musicBtn{
+position:fixed;
+top:15px;
+right:15px;
+background:var(--gold);
+color:var(--maroon);
+border:none;
+padding:8px 14px;
+border-radius:20px;
+font-weight:600;
+font-size:0.8rem;
+cursor:pointer;
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
+z-index:999;
+}
+
+/* HERO FULL SCREEN */
 .hero{
 background:var(--maroon);
 color:var(--gold);
@@ -32,6 +50,8 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 padding:20px;
+position:relative;
+overflow:hidden;
 }
 
 .hero h1{
@@ -45,7 +65,22 @@ margin:8px 0;
 font-size:1.1rem;
 }
 
-/* SECTION STYLE */
+/* FLOWER PETALS */
+.petal{
+position:absolute;
+top:-50px;
+font-size:22px;
+animation:fall linear infinite;
+opacity:0.9;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+/* SECTION */
 .section{
 max-width:950px;
 margin:50px auto;
@@ -120,35 +155,28 @@ padding:30px;
 margin-top:50px;
 }
 
-/* MOBILE OPTIMIZATION */
+/* MOBILE */
 @media(max-width:768px){
-
-.hero h1{
-font-size:1.8rem;
-}
-
-.hero p{
-font-size:1rem;
-}
-
-.section{
-margin:30px 15px;
-padding:30px 15px;
-}
-
-.couple-card{
-width:100%;
-max-width:320px;
-}
-
+.hero h1{font-size:1.8rem;}
+.hero p{font-size:1rem;}
+.section{margin:30px 15px;padding:30px 15px;}
+.couple-card{width:100%;max-width:320px;}
 }
 </style>
 </head>
 
 <body>
 
+<!-- MUSIC BUTTON -->
+<button id="musicBtn" onclick="toggleMusic()">🔊 Music</button>
+
+<!-- AUDIO FILE -->
+<audio id="bgMusic" loop>
+<source src="bole-chudiyan.mp3" type="audio/mpeg">
+</audio>
+
 <!-- HERO -->
-<div class="hero">
+<div class="hero" id="hero">
 <h1>शुभ विवाह • Wedding Celebration</h1>
 <p>Mr Pratik & Ms Seema</p>
 <p>Mr Lalit & Ms Manisha</p>
@@ -208,7 +236,21 @@ With Love ❤️ Kumawat Family
 </div>
 
 <script>
-// Countdown
+// MUSIC TOGGLE
+function toggleMusic(){
+const music=document.getElementById("bgMusic");
+const btn=document.getElementById("musicBtn");
+
+if(music.paused){
+music.play();
+btn.innerHTML="🔈 Pause";
+}else{
+music.pause();
+btn.innerHTML="🔊 Music";
+}
+}
+
+// COUNTDOWN
 const weddingDate=new Date("April 19, 2026 00:00:00").getTime();
 setInterval(()=>{
 const now=new Date().getTime();
@@ -220,6 +262,17 @@ const s=Math.floor((distance%(1000*60))/1000);
 document.getElementById("countdown").innerHTML=
 d+" Days "+h+" Hrs "+m+" Min "+s+" Sec";
 },1000);
+
+// FLOWER SHOWER (HERO ONLY)
+const hero=document.getElementById("hero");
+for(let i=0;i<25;i++){
+let petal=document.createElement("div");
+petal.className="petal";
+petal.innerHTML="🌸";
+petal.style.left=Math.random()*100+"%";
+petal.style.animationDuration=(4+Math.random()*6)+"s";
+hero.appendChild(petal);
+}
 </script>
 
 </body>

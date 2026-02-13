@@ -102,7 +102,6 @@ font-size:2rem;
 margin:20px 0;
 }
 
-/* COUPLES */
 .couples{
 display:flex;
 flex-wrap:wrap;
@@ -126,14 +125,12 @@ font-family:'Playfair Display',serif;
 margin:5px 0;
 }
 
-/* DATE */
 .date{
 font-size:1.4rem;
 font-weight:500;
 color:var(--maroon);
 }
 
-/* COUNTDOWN */
 .countdown{
 font-size:1.3rem;
 margin-top:15px;
@@ -141,13 +138,11 @@ color:var(--maroon);
 font-weight:500;
 }
 
-/* QR */
 .qr img{
 width:180px;
 margin-top:15px;
 }
 
-/* FOOTER */
 .footer{
 background:var(--maroon);
 color:white;
@@ -155,7 +150,6 @@ padding:30px;
 margin-top:50px;
 }
 
-/* MOBILE */
 @media(max-width:768px){
 .hero h1{font-size:1.8rem;}
 .hero p{font-size:1rem;}
@@ -168,10 +162,10 @@ margin-top:50px;
 <body>
 
 <!-- MUSIC BUTTON -->
-<button id="musicBtn" onclick="toggleMusic()">🔊 Music</button>
+<button id="musicBtn">🔊 Music</button>
 
-<!-- AUDIO FILE -->
-<audio id="bgMusic" loop>
+<!-- AUDIO -->
+<audio id="bgMusic" loop preload="auto">
 <source src="bole-chudiyan.mp3" type="audio/mpeg">
 </audio>
 
@@ -208,7 +202,7 @@ margin-top:50px;
 </div>
 </div>
 
-<!-- DATE & LOCATION -->
+<!-- DATE -->
 <div class="section">
 <h2>Save The Date</h2>
 <div class="divider">❦</div>
@@ -228,7 +222,6 @@ margin-top:50px;
 style="text-decoration:none;color:var(--maroon);font-weight:600;">
 View Location on Map
 </a>
-
 </div>
 
 <div class="footer">
@@ -236,19 +229,27 @@ With Love ❤️ Kumawat Family
 </div>
 
 <script>
-// MUSIC TOGGLE
-function toggleMusic(){
-const music=document.getElementById("bgMusic");
-const btn=document.getElementById("musicBtn");
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+let isPlaying = false;
 
-if(music.paused){
-music.play();
-btn.innerHTML="🔈 Pause";
+btn.addEventListener("click", async function(){
+
+if(!isPlaying){
+try{
+await music.play();
+btn.innerHTML = "🔈 Pause";
+isPlaying = true;
+}catch(err){
+console.log("Playback prevented:", err);
+}
 }else{
 music.pause();
-btn.innerHTML="🔊 Music";
+btn.innerHTML = "🔊 Music";
+isPlaying = false;
 }
-}
+
+});
 
 // COUNTDOWN
 const weddingDate=new Date("April 19, 2026 00:00:00").getTime();
@@ -277,3 +278,4 @@ hero.appendChild(petal);
 
 </body>
 </html>
+

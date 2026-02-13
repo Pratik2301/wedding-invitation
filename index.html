@@ -156,34 +156,6 @@ margin-top:50px;
 </style>
 </head>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const music = document.getElementById("bgMusic");
-    const btn = document.getElementById("musicBtn");
-
-    let isPlaying = false;
-
-    btn.addEventListener("click", function () {
-
-        if (!isPlaying) {
-            music.play().then(() => {
-                isPlaying = true;
-                btn.innerHTML = "🔇 Pause";
-            }).catch((error) => {
-                console.log("Playback failed:", error);
-            });
-        } else {
-            music.pause();
-            isPlaying = false;
-            btn.innerHTML = "🎵 Play";
-        }
-
-    });
-
-});
-</script>
-
   
 <body>
 
@@ -254,6 +226,31 @@ With Love ❤️ Kumawat Family
 </div>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("musicBtn");
+
+    let isPlaying = false;
+
+    btn.addEventListener("click", function () {
+
+        if (!isPlaying) {
+            music.play().then(() => {
+                isPlaying = true;
+                btn.innerHTML = "🔇 Pause";
+            }).catch((error) => {
+                console.log("Playback failed:", error);
+            });
+        } else {
+            music.pause();
+            isPlaying = false;
+            btn.innerHTML = "🎵 Play";
+        }
+
+    });
+
+});
 // const music = document.getElementById("bgMusic");
 // const btn = document.getElementById("musicBtn");
 

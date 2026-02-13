@@ -236,13 +236,13 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", function () {
 
         if (!isPlaying) {
+            music.load();
             music.play().then(() => {
                 isPlaying = true;
                 btn.innerHTML = "🔇 Pause";
-            }).catch((error) => {
-                console.log("Playback failed:", error);
-            });
-        } else {
+            }).catch(error => console.log(error));
+            }
+        else {
             music.pause();
             isPlaying = false;
             btn.innerHTML = "🎵 Play";

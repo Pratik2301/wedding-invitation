@@ -166,7 +166,6 @@ margin-top:50px;
 
 <!-- AUDIO -->
 <audio id="bgMusic" loop preload="auto">
-<source src="bole-chudiyan.mp3" type="audio/mpeg">
 </audio>
 
 <!-- HERO -->
@@ -231,24 +230,36 @@ With Love ❤️ Kumawat Family
 <script>
 const music = document.getElementById("bgMusic");
 const btn = document.getElementById("musicBtn");
-let isPlaying = false;
 
-btn.addEventListener("click", async function(){
+let isLoading = false;
 
-if(!isPlaying){
-try{
-await music.play();
-btn.innerHTML = "🔈 Pause";
-isPlaying = true;
-}catch(err){
-console.log("Playback prevented:", err);
-}
-}else{
-music.pause();
-btn.innerHTML = "🔊 Music";
-isPlaying = false;
-}
+// set source ONCE
+music.src = "bole-chudiyan.mp3";
 
+btn.addEventListener("click", async () => {
+
+  // block double clicks
+  if (isLoading) return;
+
+  // PLAY
+  if (music.paused) {
+    try {
+      isLoading = true;
+      btn.innerHTML = "⏳ Loading";
+      await music.play();
+      btn.innerHTML = "🔈 Pause";
+    } catch (e) {
+      console.error(e);
+      btn.innerHTML = "🔊 Music";
+    } finally {
+      isLoading = false;
+    }
+  }
+  // PAUSE
+  else {
+    music.pause();
+    btn.innerHTML = "🔊 Music";
+  }
 });
 
 // COUNTDOWN

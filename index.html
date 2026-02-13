@@ -24,20 +24,18 @@ overflow-x:hidden;
 }
 
 /* MUSIC BUTTON */
-#musicBtn{
-position:fixed;
-top:15px;
-right:15px;
-background:var(--gold);
-color:var(--maroon);
-border:none;
-padding:8px 14px;
-border-radius:20px;
-font-weight:600;
-font-size:0.8rem;
-cursor:pointer;
-box-shadow:0 4px 12px rgba(0,0,0,0.3);
-z-index:999;
+.music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 16px;
+    font-size: 14px;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* HERO FULL SCREEN */
@@ -159,13 +157,42 @@ margin-top:50px;
 </style>
 </head>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("musicBtn");
+
+    let isPlaying = false;
+
+    btn.addEventListener("click", function () {
+
+        if (!isPlaying) {
+            music.play().then(() => {
+                isPlaying = true;
+                btn.innerHTML = "🔇 Pause";
+            }).catch((error) => {
+                console.log("Playback failed:", error);
+            });
+        } else {
+            music.pause();
+            isPlaying = false;
+            btn.innerHTML = "🎵 Play";
+        }
+
+    });
+
+});
+</script>
+
+  
 <body>
 
-<!-- MUSIC BUTTON -->
-<button id="musicBtn">🔊 Music</button>
+<button id="musicBtn" class="music-btn">🎵 Play</button>
 
-<!-- AUDIO -->
+<!-- Audio -->
 <audio id="bgMusic" loop preload="auto">
+    <source src="bole-chudiyan-instrumental.mp3" type="audio/mpeg">
 </audio>
 
 <!-- HERO -->
@@ -228,39 +255,39 @@ With Love ❤️ Kumawat Family
 </div>
 
 <script>
-const music = document.getElementById("bgMusic");
-const btn = document.getElementById("musicBtn");
+// const music = document.getElementById("bgMusic");
+// const btn = document.getElementById("musicBtn");
 
-let isLoading = false;
+// let isLoading = false;
 
-// set source ONCE
-music.src = "bole-chudiyan.mp3";
+// // set source ONCE
+// music.src = "bole-chudiyan.mp3";
 
-btn.addEventListener("click", async () => {
+// btn.addEventListener("click", async () => {
 
-  // block double clicks
-  if (isLoading) return;
+//   // block double clicks
+//   if (isLoading) return;
 
-  // PLAY
-  if (music.paused) {
-    try {
-      isLoading = true;
-      btn.innerHTML = "⏳ Loading";
-      await music.play();
-      btn.innerHTML = "🔈 Pause";
-    } catch (e) {
-      console.error(e);
-      btn.innerHTML = "🔊 Music";
-    } finally {
-      isLoading = false;
-    }
-  }
-  // PAUSE
-  else {
-    music.pause();
-    btn.innerHTML = "🔊 Music";
-  }
-});
+//   // PLAY
+//   if (music.paused) {
+//     try {
+//       isLoading = true;
+//       btn.innerHTML = "⏳ Loading";
+//       await music.play();
+//       btn.innerHTML = "🔈 Pause";
+//     } catch (e) {
+//       console.error(e);
+//       btn.innerHTML = "🔊 Music";
+//     } finally {
+//       isLoading = false;
+//     }
+//   }
+//   // PAUSE
+//   else {
+//     music.pause();
+//     btn.innerHTML = "🔊 Music";
+//   }
+// });
 
 // COUNTDOWN
 const weddingDate=new Date("April 19, 2026 00:00:00").getTime();

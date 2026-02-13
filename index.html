@@ -162,8 +162,7 @@ margin-top:50px;
 <button id="musicBtn" class="music-btn">🎵 Play</button>
 
 <!-- Audio -->
-<audio id="bgMusic" loop preload="auto">
-    <source src="https://res.cloudinary.com/dx5pol9wu/video/upload/v1771009579/Wedding_Mashup_Aaj_sajeya_Mast_magan_Flute_version_Live_shows_Instrumental_eambtj.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop crossorigin="anonymous">
 </audio>
 
 <!-- HERO -->
@@ -231,21 +230,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const music = document.getElementById("bgMusic");
     const btn = document.getElementById("musicBtn");
 
+    // Set source dynamically
+    music.src = "https://res.cloudinary.com/dx5pol9wu/video/upload/v1771009579/Wedding_Mashup_Aaj_sajeya_Mast_magan_Flute_version_Live_shows_Instrumental_eambtj.mp3";
+
     let isPlaying = false;
 
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", async function () {
 
-        if (!isPlaying) {
-            music.load();
-            music.play().then(() => {
-                isPlaying = true;
+        try {
+            if (!isPlaying) {
+                await music.play();
                 btn.innerHTML = "🔇 Pause";
-            }).catch(error => console.log(error));
+                isPlaying = true;
+            } else {
+                music.pause();
+                btn.innerHTML = "🎵 Play";
+                isPlaying = false;
             }
-        else {
-            music.pause();
-            isPlaying = false;
-            btn.innerHTML = "🎵 Play";
+        } catch (err) {
+            console.log("Playback error:", err);
+            alert("Music could not play. Check browser console.");
         }
 
     });

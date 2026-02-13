@@ -140,6 +140,42 @@ width:180px;
 margin-top:15px;
 }
 
+/* ===== ROYAL CURTAIN ===== */
+.curtain-container{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:99999;
+display:flex;
+pointer-events:none;
+}
+
+.curtain{
+width:50%;
+height:100%;
+background:#6a0f1f;
+transition:transform 2.5s ease-in-out;
+}
+
+.curtain.left{
+transform:translateX(0);
+}
+
+.curtain.right{
+transform:translateX(0);
+}
+
+.curtain.open.left{
+transform:translateX(-100%);
+}
+
+.curtain.open.right{
+transform:translateX(100%);
+}
+
+    
 .footer{
 background:var(--maroon);
 color:white;
@@ -164,6 +200,12 @@ margin-top:50px;
 <!-- Audio -->
 <audio id="bgMusic" loop crossorigin="anonymous">
 </audio>
+
+<!-- Royal Curtain Opening -->
+<div class="curtain-container" id="curtainContainer">
+  <div class="curtain left" id="curtainLeft"></div>
+  <div class="curtain right" id="curtainRight"></div>
+</div>
 
 <!-- HERO -->
 <div class="hero" id="hero">
@@ -229,8 +271,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const music = document.getElementById("bgMusic");
     const btn = document.getElementById("musicBtn");
+    const curtainLeft = document.getElementById("curtainLeft");
+    const curtainRight = document.getElementById("curtainRight");
+    const curtainContainer = document.getElementById("curtainContainer");
 
-    // Set source dynamically
+    // Set music source dynamically
     music.src = "https://res.cloudinary.com/dx5pol9wu/video/upload/v1771009579/Wedding_Mashup_Aaj_sajeya_Mast_magan_Flute_version_Live_shows_Instrumental_eambtj.mp3";
 
     let isPlaying = false;
@@ -239,22 +284,87 @@ document.addEventListener("DOMContentLoaded", function () {
 
         try {
             if (!isPlaying) {
+
+                // Luxury fade-in
+                music.volume = 0;
                 await music.play();
+
+                let fade = setInterval(() => {
+                    if (music.volume < 0.9) {
+                        music.volume += 0.05;
+                    } else {
+                        clearInterval(fade);
+                    }
+                }, 200);
+
                 btn.innerHTML = "🔇 Pause";
                 isPlaying = true;
+
             } else {
                 music.pause();
                 btn.innerHTML = "🎵 Play";
                 isPlaying = false;
             }
+
         } catch (err) {
             console.log("Playback error:", err);
-            alert("Music could not play. Check browser console.");
         }
 
     });
 
+    // Auto pause when tab inactive
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden && isPlaying) {
+            music.pause();
+            btn.innerHTML = "🎵 Play";
+            isPlaying = false;
+        }
+    });
+
+    // Royal Curtain Opening (one time)
+    setTimeout(() => {
+        curtainLeft.classList.add("open");
+        curtainRight.classList.add("open");
+
+        setTimeout(() => {
+            curtainContainer.style.display = "none";
+        }, 2500);
+
+    }, 800);
+
 });
+
+    
+// document.addEventListener("DOMContentLoaded", function () {
+
+//     const music = document.getElementById("bgMusic");
+//     const btn = document.getElementById("musicBtn");
+
+//     // Set source dynamically
+//     music.src = "https://res.cloudinary.com/dx5pol9wu/video/upload/v1771009579/Wedding_Mashup_Aaj_sajeya_Mast_magan_Flute_version_Live_shows_Instrumental_eambtj.mp3";
+
+//     let isPlaying = false;
+
+//     btn.addEventListener("click", async function () {
+
+//         try {
+//             if (!isPlaying) {
+//                 await music.play();
+//                 btn.innerHTML = "🔇 Pause";
+//                 isPlaying = true;
+//             } else {
+//                 music.pause();
+//                 btn.innerHTML = "🎵 Play";
+//                 isPlaying = false;
+//             }
+//         } catch (err) {
+//             console.log("Playback error:", err);
+//             alert("Music could not play. Check browser console.");
+//         }
+
+//     });
+
+// });
 // const music = document.getElementById("bgMusic");
 // const btn = document.getElementById("musicBtn");
 

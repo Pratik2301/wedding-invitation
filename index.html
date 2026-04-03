@@ -1,453 +1,502 @@
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Royal Wedding | 19 April 2026</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Wedding | 19 April 2026</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
 
-<style>
-:root{
---maroon:#6a0f1f;
---gold:#d4af37;
---cream:#faf3e0;
-}
+    <style>
+        :root {
+            --maroon: #6a0f1f;
+            --gold: #d4af37;
+            --cream: #faf3e0;
+        }
 
-body{
-margin:0;
-font-family:'Poppins',sans-serif;
-background:var(--cream);
-color:#333;
-text-align:center;
-overflow-x:hidden;
-}
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: var(--cream);
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+        }
 
-/* MUSIC BUTTON */
-.music-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 10px 16px;
-    font-size: 14px;
-    background: rgba(255,255,255,0.9);
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    z-index: 9999;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+        /* MUSIC BUTTON */
+        .music-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 16px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
 
-/* HERO FULL SCREEN */
-.hero{
-background:var(--maroon);
-color:var(--gold);
-min-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-padding:20px;
-position:relative;
-overflow:hidden;
-}
+        /* HERO FULL SCREEN */
+        .hero {
+            background: var(--maroon);
+            color: var(--gold);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
 
-.hero h1{
-font-family:'Playfair Display',serif;
-font-size:2.4rem;
-margin:0;
-}
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            margin: 0;
+        }
 
-.hero p{
-margin:8px 0;
-font-size:1.1rem;
-}
+        .hero p {
+            margin: 8px 0;
+            font-size: 1.1rem;
+        }
 
-/* FLOWER PETALS */
-.petal{
-position:absolute;
-top:-50px;
-font-size:22px;
-animation:fall linear infinite;
-opacity:0.9;
-}
+        /* FLOWER PETALS */
+        .petal {
+            position: absolute;
+            top: -50px;
+            font-size: 22px;
+            animation: fall linear infinite;
+            opacity: 0.9;
+        }
 
-@keyframes fall{
-to{
-transform:translateY(110vh) rotate(360deg);
-}
-}
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
 
-/* SECTION */
-.section{
-max-width:950px;
-margin:50px auto;
-padding:50px 20px;
-background:white;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
+        /* SECTION */
+        .section {
+            max-width: 950px;
+            margin: 50px auto;
+            padding: 50px 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
 
-.section h2{
-font-family:'Playfair Display',serif;
-color:var(--maroon);
-margin-bottom:15px;
-}
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--maroon);
+            margin-bottom: 15px;
+        }
 
-.divider{
-color:var(--gold);
-font-size:2rem;
-margin:20px 0;
-}
+        .divider {
+            color: var(--gold);
+            font-size: 2rem;
+            margin: 20px 0;
+        }
 
-.couples{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:40px;
-margin-top:30px;
-}
+        .couples {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
 
-.couple-card{
-background:var(--maroon);
-color:white;
-padding:30px;
-border-radius:20px;
-width:280px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
+        .couple-card {
+            background: var(--maroon);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            width: 280px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
 
-.couple-card h3{
-color:var(--gold);
-font-family:'Playfair Display',serif;
-margin:5px 0;
-}
+        .couple-card h3 {
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            margin: 5px 0;
+        }
 
-.date{
-font-size:1.4rem;
-font-weight:500;
-color:var(--maroon);
-}
+        .date {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--maroon);
+        }
 
-.countdown{
-font-size:1.3rem;
-margin-top:15px;
-color:var(--maroon);
-font-weight:500;
-}
+        .countdown {
+            font-size: 1.3rem;
+            margin-top: 15px;
+            color: var(--maroon);
+            font-weight: 500;
+        }
 
-.qr img{
-width:180px;
-margin-top:15px;
-}
+        .qr img {
+            width: 180px;
+            margin-top: 15px;
+        }
 
-/* ===== ROYAL CURTAIN ===== */
-/* ===== ROYAL RED THEATRE CURTAINS ===== */
-.curtain-container{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-display:flex;
-z-index:99999;
-pointer-events:none;
-}
+        /* ===== ROYAL CURTAIN ===== */
+        /* ===== ROYAL RED THEATRE CURTAINS ===== */
+        .curtain-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            z-index: 99999;
+            pointer-events: none;
+        }
 
-.curtain{
-width:50%;
-height:100%;
-background:linear-gradient(
-90deg,
-#7a0000 0%,
-#b30000 20%,
-#7a0000 40%,
-#b30000 60%,
-#7a0000 80%,
-#b30000 100%
-);
-background-size:80px 100%;
-box-shadow:inset -10px 0 20px rgba(0,0,0,0.4);
-transition:transform 2.8s cubic-bezier(.77,0,.18,1);
-}
+        .curtain {
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    #7a0000 0%,
+                    #b30000 20%,
+                    #7a0000 40%,
+                    #b30000 60%,
+                    #7a0000 80%,
+                    #b30000 100%);
+            background-size: 80px 100%;
+            box-shadow: inset -10px 0 20px rgba(0, 0, 0, 0.4);
+            transition: transform 2.8s cubic-bezier(.77, 0, .18, 1);
+        }
 
-.curtain.left{
-transform-origin:left center;
-}
+        .curtain.left {
+            transform-origin: left center;
+        }
 
-.curtain.right{
-transform-origin:right center;
-}
+        .curtain.right {
+            transform-origin: right center;
+        }
 
-.curtain.open.left{
-transform:translateX(-100%) scaleX(0.85);
-}
+        .curtain.open.left {
+            transform: translateX(-100%) scaleX(0.85);
+        }
 
-.curtain.open.right{
-transform:translateX(100%) scaleX(0.85);
-}
+        .curtain.open.right {
+            transform: translateX(100%) scaleX(0.85);
+        }
 
-    
-.footer{
-background:var(--maroon);
-color:white;
-padding:30px;
-margin-top:50px;
-}
 
-@media(max-width:768px){
-.hero h1{font-size:1.8rem;}
-.hero p{font-size:1rem;}
-.section{margin:30px 15px;padding:30px 15px;}
-.couple-card{width:100%;max-width:320px;}
-}
-</style>
-</head>
+        .footer {
+            background: var(--maroon);
+            color: white;
+            padding: 30px;
+            margin-top: 50px;
+        }
 
-  
-<body>
-
-<button id="musicBtn" class="music-btn">🎵 Play</button>
-
-<!-- Audio -->
-<audio id="bgMusic" loop crossorigin="anonymous">
-</audio>
-
-<!-- Royal Curtain Opening -->
-<div class="curtain-container" id="curtainContainer">
-  <div class="curtain left" id="curtainLeft"></div>
-  <div class="curtain right" id="curtainRight"></div>
-</div>
-
-<!-- HERO -->
-<div class="hero" id="hero">
-<h1>शुभ विवाह • Wedding Celebration</h1>
-<p>Mr Pratik & Ms Seema</p>
-<p>Mr Lalit & Ms Manisha</p>
-</div>
-
-<!-- COUPLES -->
-<div class="section">
-<h2>Royal Couples</h2>
-<div class="divider">❦</div>
-
-<div class="couples">
-
-<div class="couple-card">
-<h3>Mr Pratik</h3>
-<p>(Son of Mr Ramesh Mohanlal Kumawat)</p>
-<div class="divider">✧</div>
-<h3>Ms Seema</h3>
-<p>(Daughter of Mr Satveer Kumawat)</p>
-</div>
-
-<div class="couple-card">
-<h3>Mr Lalit</h3>
-<p>(Son of Mr Ramesh Mohanlal Kumawat)</p>
-<div class="divider">✧</div>
-<h3>Ms Manisha</h3>
-<p>(Daughter of Mr Satveer Kumawat)</p>
-</div>
-
-</div>
-</div>
-
-<!-- DATE -->
-<div class="section">
-<h2>Save The Date</h2>
-<div class="divider">❦</div>
-
-<p class="date">19th April 2026</p>
-<p>Khetri, Rajasthan</p>
-
-<div id="countdown" class="countdown"></div>
-
-<div class="qr">
-<p style="margin-top:25px;font-weight:500;">Scan for Location</p>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://www.google.com/maps/search/Khetri,+Rajasthan">
-</div>
-
-<br>
-<a href="https://www.google.com/maps/search/Khetri,+Rajasthan" target="_blank" 
-style="text-decoration:none;color:var(--maroon);font-weight:600;">
-View Location on Map
-</a>
-</div>
-
-<div class="footer">
-With Love ❤️ Kumawat Family
-</div>
-
-<script>
-
-window.addEventListener("load", function(){
-
-    setTimeout(() => {
-        curtainLeft.classList.add("open");
-        curtainRight.classList.add("open");
-    }, 500);
-
-    setTimeout(() => {
-        curtainContainer.style.display = "none";
-    }, 3300);
-
-});
-
-    
-document.addEventListener("DOMContentLoaded", function () {
-
-    const music = document.getElementById("bgMusic");
-    const btn = document.getElementById("musicBtn");
-    const curtainLeft = document.getElementById("curtainLeft");
-    const curtainRight = document.getElementById("curtainRight");
-    const curtainContainer = document.getElementById("curtainContainer");
-
-    // Set music source dynamically
-    music.src = "https://res.cloudinary.com/dx5pol9wu/video/upload/v1771009579/Wedding_Mashup_Aaj_sajeya_Mast_magan_Flute_version_Live_shows_Instrumental_eambtj.mp3";
-
-    let isPlaying = false;
-
-    btn.addEventListener("click", async function () {
-
-        try {
-            if (!isPlaying) {
-
-                // Luxury fade-in
-                music.volume = 0;
-                await music.play();
-
-                let fade = setInterval(() => {
-                    if (music.volume < 0.9) {
-                        music.volume += 0.05;
-                    } else {
-                        clearInterval(fade);
-                    }
-                }, 200);
-
-                btn.innerHTML = "🔇 Pause";
-                isPlaying = true;
-
-            } else {
-                music.pause();
-                btn.innerHTML = "🎵 Play";
-                isPlaying = false;
+        @media(max-width:768px) {
+            .hero h1 {
+                font-size: 1.8rem;
             }
 
-        } catch (err) {
-            console.log("Playback error:", err);
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section {
+                margin: 30px 15px;
+                padding: 30px 15px;
+            }
+
+            .couple-card {
+                width: 100%;
+                max-width: 320px;
+            }
         }
+    </style>
+</head>
 
-    });
 
-    // Auto pause when tab inactive
-    document.addEventListener("visibilitychange", () => {
-        if (document.hidden && isPlaying) {
-            music.pause();
-            btn.innerHTML = "🎵 Play";
-            isPlaying = false;
+<body>
+
+    <button id="musicBtn" class="music-btn">🎵 Play</button>
+
+    <!-- Audio -->
+    <audio id="bgMusic" loop crossorigin="anonymous">
+    </audio>
+
+    <!-- Royal Curtain Opening -->
+    <div class="curtain-container" id="curtainContainer">
+        <div class="curtain left" id="curtainLeft"></div>
+        <div class="curtain right" id="curtainRight"></div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero" id="hero">
+        <h1>शुभ विवाह • Wedding Celebration</h1>
+        <br>
+        <p>Mr Lalit & Ms Manisha</p>
+        <p>Mr Pratik & Ms Seema</p>
+
+    </div>
+
+    <!-- COUPLES -->
+    <div class="section">
+        <h2>Royal Couples</h2>
+        <div class="divider">❦</div>
+
+        <div class="couples">
+
+
+
+            <div class="couple-card">
+                <h3>Mr Lalit</h3>
+                <p>(Son of Mrs Sulochana Ramesh Kumawat, Mr Ramesh Mohanlal Kumawat)</p>
+                <div class="divider">✧</div>
+                <h3>Ms Manisha</h3>
+                <p>(Daughter of Mrs Krishna Devi, Lt. Mr Ramsingh Ramkumar Kumawat)</p>
+            </div>
+
+            <div class="couple-card">
+                <h3>Mr Pratik</h3>
+                <p>(Son of Mrs Sulochana Ramesh Kumawat, Mr Ramesh Mohanlal Kumawat)</p>
+                <div class="divider">✧</div>
+                <h3>Ms Seema</h3>
+                <p>(Daughter of Mrs Pramila Devi, Mr Satveer Ramkumar Kumawat)</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- DATE -->
+    <div class="section">
+        <h2>Save The Date</h2>
+        <div class="divider">❦</div>
+
+        <p class="date">19th April 2026</p>
+        <p>Khetri, Rajasthan-333503</p>
+
+        <div id="countdown" class="countdown"></div>
+
+        <div class="qr">
+            <p style="margin-top:25px;font-weight:500;">Scan for Location</p>
+            <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://www.google.com/maps/search/Khetri,+Rajasthan">
+        </div>
+
+        <br>
+        <a href="https://maps.app.goo.gl/8n9k2nQJtEsBAeQK8" target="_blank"
+            style="text-decoration:none;color:var(--maroon);font-weight:600;">
+            View Location on Map
+        </a>
+    </div>
+
+
+    <!-- RECEPTION CEREMONY -->
+    <div class="section">
+        <h2>Reception Ceremony</h2>
+        <div class="divider">❦</div>
+
+        <p class="date">4th May 2026</p>
+        <p>Ramsita Lawns, Aurangabad Road, Wadivarhe, Panchavati, Nashik-422003</p>
+
+        <div class="qr">
+            <p style="margin-top:25px;font-weight:500;">Scan for Reception Location</p>
+
+            <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://maps.app.goo.gl/Z81xHdLX8VjRpgLA8">
+        </div>
+
+        <br>
+
+        <a href="https://maps.app.goo.gl/Z81xHdLX8VjRpgLA8" target="_blank"
+            style="text-decoration:none;color:var(--maroon);font-weight:600;">
+
+            View Location on Map
+        </a>
+    </div>
+
+    <div class="footer">
+        With Love ❤️ Kumawat Family
+    </div>
+
+    <script>
+
+        window.addEventListener("load", function () {
+
+            setTimeout(() => {
+                curtainLeft.classList.add("open");
+                curtainRight.classList.add("open");
+            }, 500);
+
+            setTimeout(() => {
+                curtainContainer.style.display = "none";
+            }, 3300);
+
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const music = document.getElementById("bgMusic");
+            const btn = document.getElementById("musicBtn");
+            const curtainLeft = document.getElementById("curtainLeft");
+            const curtainRight = document.getElementById("curtainRight");
+            const curtainContainer = document.getElementById("curtainContainer");
+
+            // Set music source dynamically
+            music.src = "https://res.cloudinary.com/dx5pol9wu/video/upload/v1771009579/Wedding_Mashup_Aaj_sajeya_Mast_magan_Flute_version_Live_shows_Instrumental_eambtj.mp3";
+
+            let isPlaying = false;
+
+            btn.addEventListener("click", async function () {
+
+                try {
+                    if (!isPlaying) {
+
+                        // Luxury fade-in
+                        music.volume = 0;
+                        await music.play();
+
+                        let fade = setInterval(() => {
+                            if (music.volume < 0.9) {
+                                music.volume += 0.05;
+                            } else {
+                                clearInterval(fade);
+                            }
+                        }, 200);
+
+                        btn.innerHTML = "🔇 Pause";
+                        isPlaying = true;
+
+                    } else {
+                        music.pause();
+                        btn.innerHTML = "🎵 Play";
+                        isPlaying = false;
+                    }
+
+                } catch (err) {
+                    console.log("Playback error:", err);
+                }
+
+            });
+
+            // Auto pause when tab inactive
+            document.addEventListener("visibilitychange", () => {
+                if (document.hidden && isPlaying) {
+                    music.pause();
+                    btn.innerHTML = "🎵 Play";
+                    isPlaying = false;
+                }
+            });
+
+            // Royal Curtain Opening (one time)
+            setTimeout(() => {
+                curtainLeft.classList.add("open");
+                curtainRight.classList.add("open");
+
+                setTimeout(() => {
+                    curtainContainer.style.display = "none";
+                }, 2500);
+
+            }, 800);
+
+        });
+
+
+        // document.addEventListener("DOMContentLoaded", function () {
+
+        //     const music = document.getElementById("bgMusic");
+        //     const btn = document.getElementById("musicBtn");
+
+        //     // Set source dynamically
+        //     music.src = "https://res.cloudinary.com/dx5pol9wu/video/upload/v1771009579/Wedding_Mashup_Aaj_sajeya_Mast_magan_Flute_version_Live_shows_Instrumental_eambtj.mp3";
+
+        //     let isPlaying = false;
+
+        //     btn.addEventListener("click", async function () {
+
+        //         try {
+        //             if (!isPlaying) {
+        //                 await music.play();
+        //                 btn.innerHTML = "🔇 Pause";
+        //                 isPlaying = true;
+        //             } else {
+        //                 music.pause();
+        //                 btn.innerHTML = "🎵 Play";
+        //                 isPlaying = false;
+        //             }
+        //         } catch (err) {
+        //             console.log("Playback error:", err);
+        //             alert("Music could not play. Check browser console.");
+        //         }
+
+        //     });
+
+        // });
+        // const music = document.getElementById("bgMusic");
+        // const btn = document.getElementById("musicBtn");
+
+        // let isLoading = false;
+
+        // // set source ONCE
+        // music.src = "bole-chudiyan.mp3";
+
+        // btn.addEventListener("click", async () => {
+
+        //   // block double clicks
+        //   if (isLoading) return;
+
+        //   // PLAY
+        //   if (music.paused) {
+        //     try {
+        //       isLoading = true;
+        //       btn.innerHTML = "⏳ Loading";
+        //       await music.play();
+        //       btn.innerHTML = "🔈 Pause";
+        //     } catch (e) {
+        //       console.error(e);
+        //       btn.innerHTML = "🔊 Music";
+        //     } finally {
+        //       isLoading = false;
+        //     }
+        //   }
+        //   // PAUSE
+        //   else {
+        //     music.pause();
+        //     btn.innerHTML = "🔊 Music";
+        //   }
+        // });
+
+        // COUNTDOWN
+        const weddingDate = new Date("April 19, 2026 00:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML =
+                d + " Days " + h + " Hrs " + m + " Min " + s + " Sec";
+        }, 1000);
+
+        // FLOWER SHOWER (HERO ONLY)
+        const hero = document.getElementById("hero");
+        for (let i = 0; i < 25; i++) {
+            let petal = document.createElement("div");
+            petal.className = "petal";
+            petal.innerHTML = "🌸";
+            petal.style.left = Math.random() * 100 + "%";
+            petal.style.animationDuration = (4 + Math.random() * 6) + "s";
+            hero.appendChild(petal);
         }
-    });
+    </script>
 
-    // Royal Curtain Opening (one time)
-    setTimeout(() => {
-        curtainLeft.classList.add("open");
-        curtainRight.classList.add("open");
+</body>
 
-        setTimeout(() => {
-            curtainContainer.style.display = "none";
-        }, 2500);
-
-    }, 800);
-
-});
-
-    
-// document.addEventListener("DOMContentLoaded", function () {
-
-//     const music = document.getElementById("bgMusic");
-//     const btn = document.getElementById("musicBtn");
-
-//     // Set source dynamically
-//     music.src = "https://res.cloudinary.com/dx5pol9wu/video/upload/v1771009579/Wedding_Mashup_Aaj_sajeya_Mast_magan_Flute_version_Live_shows_Instrumental_eambtj.mp3";
-
-//     let isPlaying = false;
-
-//     btn.addEventListener("click", async function () {
-
-//         try {
-//             if (!isPlaying) {
-//                 await music.play();
-//                 btn.innerHTML = "🔇 Pause";
-//                 isPlaying = true;
-//             } else {
-//                 music.pause();
-//                 btn.innerHTML = "🎵 Play";
-//                 isPlaying = false;
-//             }
-//         } catch (err) {
-//             console.log("Playback error:", err);
-//             alert("Music could not play. Check browser console.");
-//         }
-
-//     });
-
-// });
-// const music = document.getElementById("bgMusic");
-// const btn = document.getElementById("musicBtn");
-
-// let isLoading = false;
-
-// // set source ONCE
-// music.src = "bole-chudiyan.mp3";
-
-// btn.addEventListener("click", async () => {
-
-//   // block double clicks
-//   if (isLoading) return;
-
-//   // PLAY
-//   if (music.paused) {
-//     try {
-//       isLoading = true;
-//       btn.innerHTML = "⏳ Loading";
-//       await music.play();
-//       btn.innerHTML = "🔈 Pause";
-//     } catch (e) {
-//       console.error(e);
-//       btn.innerHTML = "🔊 Music";
-//     } finally {
-//       isLoading = false;
-//     }
-//   }
-//   // PAUSE
-//   else {
-//     music.pause();
-//     btn.innerHTML = "🔊 Music";
-//   }
-// });
-
-// COUNTDOWN
-const weddingDate=new Date("April 19, 2026 00:00:00").getTime();
-setInterval(()=>{
-const now=new Date().getTime();
-const distance=weddingDate-now;
-const d=Math.floor(distance/(1000*60*60*24));
-const h=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-const m=Math.floor((distance%(1000*60*60))/(1000*60));
-const s=Math.floor((distance%(1000*60))/1000);
-document.getElementById("countdown").innerHTML=
-d+" Days "+h+" Hrs "+m+" Min "+s+" Sec";
-},1000);
-
-// FLOWER SHOWER (HERO ONLY)
-const hero=document.getElementById("hero");
-for(let i=0;i<25;i++){
-let petal=document.createElement("div");
-petal.className="petal";
-petal.innerHTML="🌸";
-petal.style.left=Math.random()*100+"%";
-petal.style.animationDuration=(4+Math.random()*6)+"s";
-hero.appendChild(petal);
-}
+</html>
 </script>
 
 </body>
